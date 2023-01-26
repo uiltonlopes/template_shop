@@ -1,4 +1,5 @@
-<%= form_with(model: template) do |form| %>
+<%= form_with model: template, html: { multipart: true } do |form| %>
+
   <% if template.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(template.errors.count, "error") %> prohibited this template from being saved:</h2>
@@ -17,8 +18,8 @@
   </div>
 
   <div>
-    <%= form.label :location, style: "display: block" %>
-    <%= form.text_field :location %>
+    <%= form.label :zip_file, style: "display: block" %>
+    <%= form.file_field :zip_file %>
   </div>
 
   <div>
