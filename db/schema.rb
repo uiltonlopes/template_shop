@@ -12,12 +12,12 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_01_26_204711) do
   create_table "templates", force: :cascade do |t|
-    t.string "nome"
+    t.string "name"
     t.string "location"
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["nome"], name: "index_templates_on_nome", unique: true
+    t.index ["name"], name: "index_templates_on_name", unique: true
     t.index ["user_id"], name: "index_templates_on_user_id"
   end
 

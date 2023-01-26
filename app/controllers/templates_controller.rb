@@ -23,6 +23,7 @@ class TemplatesController < ApplicationController
   # POST /templates or /templates.json
   def create
     @template = Template.new(template_params)
+    @template.user = current_user
 
     respond_to do |format|
       if @template.save
@@ -66,6 +67,6 @@ class TemplatesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def template_params
-      params.require(:template).permit(:nome, :location, :user_id)
+      params.require(:template).permit(:name, :location, :user_id)
     end
 end
