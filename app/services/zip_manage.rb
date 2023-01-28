@@ -14,6 +14,7 @@ class ZipManage
         fpath = File.join(@tmp_folder, f.name)
         target_dir = File.dirname(fpath)
         FileUtils.mkdir_p(target_dir) unless File.directory?(target_dir)
+        next if File.exist?(fpath)
         zip_file.extract(f, fpath)
       end
     end
